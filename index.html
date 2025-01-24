@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sugarcane Eco Water Footprint Calculator</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+  </head>
+  <body>
+    <div class="main-container">
+      <header class="hero-section">
+        <div class="hero-content">
+          <h1>Sugarcane Water Footprint Explorer</h1>
+          <p>Analyze and Optimize Water Usage in Sugarcane Cultivation</p>
+        </div>
+      </header>
+
+      <section class="info-section">
+        <div class="water-types-description">
+          <h2>Understanding Water Types in Sugarcane Cultivation</h2>
+          <p>
+            Water footprint in sugarcane agriculture is a complex ecosystem of
+            resource management. Our tool helps you understand and optimize
+            water usage by breaking down different water components.
+          </p>
+        </div>
+        <div class="water-types-info">
+          <div class="water-type green-water">
+            <i class="ri-leaf-line"></i>
+            <h3>Green Water</h3>
+            <p>
+              Rainwater stored in soil, directly used by sugarcane crops.
+              Essential for natural growth and representing nature's irrigation.
+            </p>
+            <div class="water-doodle">
+              <svg viewBox="0 0 100 100">
+                <path
+                  d="M20,80 Q50,50 80,80"
+                  stroke="#2ecc71"
+                  fill="none"
+                  stroke-width="3"
+                />
+                <circle cx="50" cy="40" r="10" fill="#2ecc71" opacity="0.5" />
+              </svg>
+            </div>
+          </div>
+          <div class="water-type blue-water">
+            <i class="ri-drop-line"></i>
+            <h3>Blue Water</h3>
+            <p>
+              Water from irrigation systems, surface water, and groundwater
+              sources. Managed water supply crucial for sugarcane production.
+            </p>
+            <div class="water-doodle">
+              <svg viewBox="0 0 100 100">
+                <path
+                  d="M20,80 C40,50 60,50 80,80"
+                  stroke="#3498db"
+                  fill="none"
+                  stroke-width="3"
+                />
+                <droplet x="50" y="40" width="10" height="20" fill="#3498db" />
+              </svg>
+            </div>
+          </div>
+          <div class="water-type grey-water">
+            <i class="ri-cloud-line"></i>
+            <h3>Grey Water</h3>
+            <p>
+              Water required to neutralize agricultural pollutants from
+              fertilizers and chemicals. Indicates environmental neutralization
+              and sustainability.
+            </p>
+            <div class="water-doodle">
+              <svg viewBox="0 0 100 100">
+                <path
+                  d="M20,80 Q50,30 80,80"
+                  stroke="#f39c12"
+                  fill="none"
+                  stroke-width="3"
+                />
+                <circle cx="50" cy="40" r="8" fill="#f39c12" opacity="0.5" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sugarcane-journey">
+        <h2>The Sugarcane Water Journey</h2>
+        <div class="journey-stages">
+          <div class="journey-stage">
+            <i class="ri-seedling-line"></i>
+            <h3>Planting</h3>
+            <p>Initial water requirements and soil moisture management</p>
+          </div>
+          <div class="journey-stage">
+            <i class="ri-sun-line"></i>
+            <h3>Growth</h3>
+            <p>Peak water consumption and irrigation strategies</p>
+          </div>
+          <div class="journey-stage">
+            <i class="ri-landscape-line"></i>
+            <h3>Maturation</h3>
+            <p>Water stress tolerance and yield optimization</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="calculator-section">
+        <div class="calculator-container">
+          <div class="input-form">
+            <h2>Water Footprint Calculator</h2>
+            <form id="waterFootprintForm">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="landArea">Land Area (hectares)</label>
+                  <input
+                    type="number"
+                    id="landArea"
+                    name="landArea"
+                    required
+                    placeholder="e.g., 10"
+                    min="0"
+                    step="0.1"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="precipitation">Annual Precipitation (mm)</label>
+                  <input
+                    type="number"
+                    id="precipitation"
+                    name="precipitation"
+                    required
+                    placeholder="e.g., 800"
+                    min="0"
+                    step="1"
+                  />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="irrigation">Irrigation Requirement (mm)</label>
+                  <input
+                    type="number"
+                    id="irrigation"
+                    name="irrigation"
+                    required
+                    placeholder="e.g., 300"
+                    min="0"
+                    step="1"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="runoff">Runoff (mm)</label>
+                  <input
+                    type="number"
+                    id="runoff"
+                    name="runoff"
+                    required
+                    placeholder="e.g., 100"
+                    min="0"
+                    step="1"
+                  />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="fertilizer">Fertilizer Amount (kg/ha)</label>
+                  <input
+                    type="number"
+                    id="fertilizer"
+                    name="fertilizer"
+                    required
+                    placeholder="e.g., 200"
+                    min="0"
+                    step="1"
+                  />
+                </div>
+              </div>
+              <button type="button" id="calculateBtn">
+                <i class="ri-calculator-line"></i> Calculate Water Footprint
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="results-section">
+        <div class="results-container">
+          <div id="waterFootprintResult" class="result-details"></div>
+          <div class="graph-container">
+            <div class="graph-wrapper">
+              <h3>Water Footprint Composition (Pie Chart)</h3>
+              <canvas id="waterFootprintGraph" class="chart-canvas"></canvas>
+            </div>
+            <div class="graph-wrapper">
+              <h3>Water Components Trend (Line Chart)</h3>
+              <canvas id="waterLineGraph" class="chart-canvas"></canvas>
+            </div>
+            <div class="graph-wrapper">
+              <h3>Water Efficiency Comparison (Bar Chart)</h3>
+              <canvas id="waterBarGraph" class="chart-canvas"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sustainability-info">
+        <h2>Why Water Footprint Matters in Sugarcane Production</h2>
+        <div class="sustainability-content">
+          <div class="sustainability-card">
+            <i class="ri-earth-line"></i>
+            <h3>Ecological Balance</h3>
+            <p>
+              Precise water management in sugarcane farming helps maintain
+              ecosystem health and reduces environmental strain.
+            </p>
+          </div>
+          <div class="sustainability-card">
+            <i class="ri-scales-line"></i>
+            <h3>Resource Optimization</h3>
+            <p>
+              Strategic water usage leads to improved crop yields, reduced
+              waste, and enhanced agricultural sustainability.
+            </p>
+          </div>
+          <div class="sustainability-card">
+            <i class="ri-lightbulb-line"></i>
+            <h3>Innovative Agriculture</h3>
+            <p>
+              Data-driven insights enable precise irrigation and fertilization
+              strategies, revolutionizing sugarcane cultivation.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <footer class="eco-footer">
+        <p>
+          Empowering Sustainable Sugarcane Agriculture through Intelligent Water
+          Management
+        </p>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
